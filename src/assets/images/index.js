@@ -6,7 +6,7 @@ import menu from "./icon-menu.svg";
 import minus from "./icon-minus.svg";
 import next from "./icon-next.svg";
 import plus from "./icon-plus.svg";
-import previous from "./icon-previous";
+import previous from "./icon-previous.svg";
 import avatar from "./image-avatar.png";
 import product1Thumbnail from "./image-product-1-thumbnail.jpg";
 import product2Thumbnail from "./image-product-2-thumbnail.jpg";
