@@ -24,9 +24,10 @@ function Navbar() {
 
       {/* Translucent Black Background */}
       <div
-        className={`top-0 left-0 z-10 fixed bg-black opacity-75 ${
-          menuOpen ? "" : "opacity-0"
+        className={`top-0 left-0 fixed bg-black ${
+          menuOpen ? "opacity-75 z-10" : "opacity-0 -z-10"
         } w-screen h-screen transition`}
+        onClick={() => setMenuOpen(false)}
       />
 
       {/* Mobile Menu */}
