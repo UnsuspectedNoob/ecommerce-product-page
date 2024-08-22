@@ -22,7 +22,7 @@ function ImageSlide() {
 
       {/* Left Button */}
       <div
-        className="relative z-20 flex justify-center items-center bg-white ml-4 rounded-full w-10 h-10"
+        className="relative z-[5] flex justify-center items-center bg-white ml-4 rounded-full w-10 h-10"
         onClick={() => {
           if (index <= 0) {
             setIndex(3);
@@ -36,7 +36,7 @@ function ImageSlide() {
 
       {/* Right Button */}
       <div
-        className="relative z-20 flex justify-center items-center bg-white mr-4 rounded-full w-10 h-10"
+        className="relative z-[5] flex justify-center items-center bg-white mr-4 rounded-full w-10 h-10"
         onClick={() => {
           if (index >= 3) {
             setIndex(0);
