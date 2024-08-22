@@ -29,12 +29,23 @@ function Navbar({ cartAmount, setCartAmount }) {
         <img src={logo} alt="site logo sneakers" />
       </div>
 
+      {/* Cart Button */}
       <div className="flex items-center gap-x-5">
-        <img
-          src={cart}
-          alt="cart button"
-          onClick={() => setCartOpen((prev) => !prev)}
-        />
+        <div className="relative">
+          <img
+            src={cart}
+            alt="cart button"
+            onClick={() => setCartOpen((prev) => !prev)}
+          />
+          {cartAmount <= 0 ? (
+            ""
+          ) : (
+            <p className="-top-[8px] -right-3 absolute bg-primary-orange px-2 py-0 rounded-full text-[12px] text-white">
+              {cartAmount}
+            </p>
+          )}
+        </div>
+
         <img src={avatar} alt="Profile icon" className="w-6" />
       </div>
 
@@ -78,7 +89,7 @@ function Navbar({ cartAmount, setCartAmount }) {
                 <img
                   src={product1Thumbnail}
                   alt="product image"
-                  className="rounded-sm w-[52px] h-[52px]"
+                  className="mr-1 rounded-sm w-[52px] h-[52px]"
                 />
                 <div className="text-neutral-dg-blue">
                   <p>{name}</p>
