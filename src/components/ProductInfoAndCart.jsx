@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { product } from "../constants";
 import { cart, minus, plus } from "../assets/images";
 
 function ProductInfoAndCart({ cartAmount, setCartAmount }) {
   const { company, description, discount, name, price } = product;
+  const [chooseAmount, setChooseAmount] = useState(0);
 
   return (
     <div className="flex flex-col gap-y-4 px-6 py-7">
@@ -38,21 +39,24 @@ function ProductInfoAndCart({ cartAmount, setCartAmount }) {
             src={minus}
             alt="minus"
             onClick={() => {
-              if (cartAmount !== 0) setCartAmount((prev) => prev - 1);
+              if (chooseAmount >= 1) setChooseAmount((prev) => prev - 1);
             }}
           />
 
-          <p>{cartAmount}</p>
+          <p>{chooseAmount}</p>
 
           <img
             src={plus}
             alt="plus"
-            onClick={() => setCartAmount((prev) => prev + 1)}
+            onClick={() => setChooseAmount((prev) => prev + 1)}
           />
         </div>
 
         {/* Add Product to Cart */}
-        <button className="flex justify-center items-center gap-x-4 bg-primary-orange py-3 rounded-lg w-full text-neutral-vd-blue">
+        <button
+          className="flex justify-center items-center gap-x-4 bg-primary-orange py-3 rounded-lg w-full text-neutral-vd-blue"
+          onClick={() => setCartAmount(cartAmount + chooseAmount)}
+        >
           {/* Cart Icon */}
           <svg
             width="22"
