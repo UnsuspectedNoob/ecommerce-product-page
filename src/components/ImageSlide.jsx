@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  next,
-  previous,
-  product1,
-  product2,
-  product3,
-  product4,
-} from "../assets/images";
+import { next, previous } from "../assets/images";
 import { products } from "../constants";
 
 function ImageSlide() {

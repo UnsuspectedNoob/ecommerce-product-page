@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   avatar,
-  cart,
   logo,
   menu,
   close,
@@ -43,13 +42,23 @@ function Navbar({ cartAmount, setCartAmount }) {
         </div>
       </div>
 
-      {/* Cart Button */}
       <div className="flex items-center gap-x-5 md:gap-x-12">
+        {/* Cart Button */}
         <div
-          className="relative cursor-pointer"
+          className="relative cursor-pointer group"
           onClick={() => setCartOpen((prev) => !prev)}
         >
-          <img src={cart} alt="cart button" />
+          <svg
+            width="22"
+            height="20"
+            className="group-hover:fill-black fill-[#69707D]"
+          >
+            <path
+              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+              fillRule="nonzero"
+            />
+          </svg>
+
           {cartAmount <= 0 ? (
             ""
           ) : (
@@ -91,7 +100,7 @@ function Navbar({ cartAmount, setCartAmount }) {
           !cartOpen ? "hidden" : "block"
         }`}
       >
-        <div className="relative bg-white shadow-xl pb-[30px] rounded-lg w-full">
+        <div className="relative bg-white shadow-2xl pb-[30px] rounded-lg w-full">
           <p className="mb-7 px-6 pt-6 font-bold">Cart</p>
           <div className="border-t" /> {/* Just a line. */}
           {cartAmount <= 0 ? (

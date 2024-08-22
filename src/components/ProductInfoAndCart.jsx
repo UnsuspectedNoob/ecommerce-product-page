@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { product } from "../constants";
-import { cart, minus, plus } from "../assets/images";
+import { minus, plus } from "../assets/images";
 
 function ProductInfoAndCart({ cartAmount, setCartAmount }) {
   const { company, description, discount, name, price } = product;
@@ -11,7 +11,7 @@ function ProductInfoAndCart({ cartAmount, setCartAmount }) {
       <p className="font-bold text-neutral-dg-blue text-xs tracking-widest">
         {company.toUpperCase()}
       </p>
-      <p className="font-bold text-3xl md:text-5xl">{name}</p>
+      <p className="font-bold text-3xl md:text-5xl tracking-tight">{name}</p>
       <p className="text-[15px] text-neutral-dg-blue md:mt-4 md:text-[18px]">
         {description}
       </p>
@@ -58,7 +58,7 @@ function ProductInfoAndCart({ cartAmount, setCartAmount }) {
 
         {/* Add Product to Cart */}
         <button
-          className="flex justify-center items-center gap-x-4 bg-primary-orange hover:opacity-75 py-3 rounded-lg w-full text-neutral-vd-blue"
+          className="flex justify-center items-center gap-x-4 bg-primary-orange hover:bg-opacity-75 py-3 rounded-lg w-full text-neutral-vd-blue"
           onClick={() => setCartAmount(cartAmount + chooseAmount)}
         >
           {/* Cart Icon */}
