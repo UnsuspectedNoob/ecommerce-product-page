@@ -12,7 +12,7 @@ function LightBox() {
     <div className="gap-8 hidden lightbox-grid md:grid md:mx-auto xl:mx-0">
       {/* Big Image Viewer */}
       <div
-        className="col-span-4 row-span-4 rounded-xl overflow-hidden"
+        className="col-span-4 row-span-4 rounded-xl cursor-pointer overflow-hidden"
         onClick={() => {
           setShowModal(true);
           setModalIndex(index);
