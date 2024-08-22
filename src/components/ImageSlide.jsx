@@ -7,13 +7,13 @@ import {
   product3,
   product4,
 } from "../assets/images";
+import { products } from "../constants";
 
 function ImageSlide() {
-  const products = [product1, product2, product3, product4];
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative flex justify-between items-center h-[300px]">
+    <div className="relative flex justify-between items-center md:hidden h-[300px]">
       <img
         src={products[index]}
         alt="product image"

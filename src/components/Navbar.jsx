@@ -16,27 +16,40 @@ function Navbar({ cartAmount, setCartAmount }) {
   const { name, discount, price } = product;
 
   return (
-    <div className="relative flex justify-between items-center p-6 pt-5">
-      <div className="flex items-center gap-x-4">
+    <div className="relative flex justify-between items-center md:px-0 md:py-8 p-6 pt-5 md:border-b-2 md:border-b-neutral-lg-blue">
+      <div className="flex items-center gap-x-4 md:gap-x-14">
         <img
           src={!menuOpen ? menu : close}
           alt="menu button"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="relative z-40"
+          className="relative z-40 md:hidden"
         />
 
         {/* Logo */}
         <img src={logo} alt="site logo sneakers" />
+
+        {/* Desktop Links */}
+        <div className="md:flex items-center gap-x-8 hidden text-[15px]">
+          {links.map((link) => (
+            <a
+              href="#"
+              key={link}
+              className="relative text-neutral-dg-blue hover:text-black cursor-pointer group"
+            >
+              {link}
+              <div className="group-hover:block -bottom-[46px] absolute hidden border-t-4 border-t-primary-orange w-full" />
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* Cart Button */}
-      <div className="flex items-center gap-x-5">
-        <div className="relative">
-          <img
-            src={cart}
-            alt="cart button"
-            onClick={() => setCartOpen((prev) => !prev)}
-          />
+      <div className="flex items-center gap-x-5 md:gap-x-12">
+        <div
+          className="relative cursor-pointer"
+          onClick={() => setCartOpen((prev) => !prev)}
+        >
+          <img src={cart} alt="cart button" />
           {cartAmount <= 0 ? (
             ""
           ) : (
@@ -46,7 +59,9 @@ function Navbar({ cartAmount, setCartAmount }) {
           )}
         </div>
 
-        <img src={avatar} alt="Profile icon" className="w-6" />
+        <div className="place-items-center md:grid rounded-full ring-primary-orange md:hover:ring-2 md:w-[50px] md:h-[50px] cursor-pointer">
+          <img src={avatar} alt="Profile icon" className="w-6 md:w-12" />
+        </div>
       </div>
 
       {/* Translucent Black Background */}
@@ -72,11 +87,11 @@ function Navbar({ cartAmount, setCartAmount }) {
 
       {/* Cart Menu */}
       <div
-        className={`top-20 left-0 z-20 absolute px-2 w-full ${
+        className={`top-20 md:top-[90px] xl:-right-20 right-0 z-20 absolute px-2 w-full max-w-[380px] ${
           !cartOpen ? "hidden" : "block"
         }`}
       >
-        <div className="relative bg-white pb-[30px] rounded-lg w-full">
+        <div className="relative bg-white shadow-xl pb-[30px] rounded-lg w-full">
           <p className="mb-7 px-6 pt-6 font-bold">Cart</p>
           <div className="border-t" /> {/* Just a line. */}
           {cartAmount <= 0 ? (
@@ -89,7 +104,7 @@ function Navbar({ cartAmount, setCartAmount }) {
                 <img
                   src={product1Thumbnail}
                   alt="product image"
-                  className="mr-1 rounded-sm w-[52px] h-[52px]"
+                  className="mr-1 rounded-md w-[52px] h-[52px]"
                 />
                 <div className="text-neutral-dg-blue">
                   <p>{name}</p>
@@ -110,12 +125,15 @@ function Navbar({ cartAmount, setCartAmount }) {
                   src={deleteIcon}
                   alt="delete icon"
                   onClick={() => setCartAmount(0)}
+                  className="cursor-pointer"
                 />
               </div>
 
-              <div className="bg-primary-orange mx-6 py-3 rounded-lg text-center">
-                Checkout
-              </div>
+              <a href="https://www.google.com">
+                <div className="bg-primary-orange mx-6 py-4 rounded-lg font-bold text-center text-neutral-vd-blue cursor-pointer">
+                  Checkout
+                </div>
+              </a>
             </>
           )}
         </div>

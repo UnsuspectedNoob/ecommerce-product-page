@@ -18,3 +18,8 @@
   font-weight: 700;
   src: url("./assets/fonts/kumbh-sans-v22-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+.lightbox-grid {
+  grid-template-rows: repeat(5, minmax(0, 90px));
+  grid-template-columns: repeat(4, minmax(0, 90px));
+}

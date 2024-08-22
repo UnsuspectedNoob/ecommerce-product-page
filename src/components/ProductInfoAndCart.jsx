@@ -7,14 +7,16 @@ function ProductInfoAndCart({ cartAmount, setCartAmount }) {
   const [chooseAmount, setChooseAmount] = useState(0);
 
   return (
-    <div className="flex flex-col gap-y-4 px-6 py-7">
+    <div className="flex flex-col gap-y-4 px-6 py-7 place-self-center max-w-xl">
       <p className="font-bold text-neutral-dg-blue text-xs tracking-widest">
         {company.toUpperCase()}
       </p>
-      <p className="font-bold text-3xl">{name}</p>
-      <p className="text-[15px] text-neutral-dg-blue">{description}</p>
+      <p className="font-bold text-3xl md:text-5xl">{name}</p>
+      <p className="text-[15px] text-neutral-dg-blue md:mt-4 md:text-[18px]">
+        {description}
+      </p>
 
-      <div className="flex justify-between items-center">
+      <div className="flex md:flex-col justify-between items-center md:items-start gap-y-3">
         <div className="flex items-center gap-x-4">
           {/* Discounted Price */}
           <p className="font-bold text-3xl">
@@ -32,29 +34,31 @@ function ProductInfoAndCart({ cartAmount, setCartAmount }) {
         </s>
       </div>
 
-      <div className="flex flex-col gap-y-4">
+      <div className="grid md:grid-cols-[1fr_2fr] gap-y-4 gap-x-4">
         {/* Set Cart Amount */}
         <div className="flex justify-between items-center bg-neutral-lg-blue px-4 py-3 rounded-lg font-bold">
-          <img
-            src={minus}
-            alt="minus"
+          <div
+            className="hover:opacity-75 cursor-pointer self-stretch flex items-center"
             onClick={() => {
               if (chooseAmount >= 1) setChooseAmount((prev) => prev - 1);
             }}
-          />
+          >
+            <img src={minus} alt="minus" className="" />
+          </div>
 
           <p>{chooseAmount}</p>
 
-          <img
-            src={plus}
-            alt="plus"
+          <div
+            className="hover:opacity-75 cursor-pointer self-stretch flex items-center"
             onClick={() => setChooseAmount((prev) => prev + 1)}
-          />
+          >
+            <img src={plus} alt="plus" className="" />
+          </div>
         </div>
 
         {/* Add Product to Cart */}
         <button
-          className="flex justify-center items-center gap-x-4 bg-primary-orange py-3 rounded-lg w-full text-neutral-vd-blue"
+          className="flex justify-center items-center gap-x-4 bg-primary-orange hover:opacity-75 py-3 rounded-lg w-full text-neutral-vd-blue"
           onClick={() => setCartAmount(cartAmount + chooseAmount)}
         >
           {/* Cart Icon */}
