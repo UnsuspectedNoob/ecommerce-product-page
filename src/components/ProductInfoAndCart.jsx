@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { product } from "../constants";
 import { minus, plus } from "../assets/images";
+import { CartContext } from "../contexts/CartProvider";
 
-function ProductInfoAndCart({ cartAmount, setCartAmount }) {
+function ProductInfoAndCart() {
+  const { cartAmount, setCartAmount } = useContext(CartContext);
   const { company, description, discount, name, price } = product;
   const [chooseAmount, setChooseAmount] = useState(0);
 

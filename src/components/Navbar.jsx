@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   avatar,
   logo,
@@ -8,8 +8,10 @@ import {
   deleteIcon,
 } from "../assets/images";
 import { links, product } from "../constants";
+import { CartContext } from "../contexts/CartProvider";
 
-function Navbar({ cartAmount, setCartAmount }) {
+function Navbar() {
+  const { cartAmount, setCartAmount } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const { name, discount, price } = product;
